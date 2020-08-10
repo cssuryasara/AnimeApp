@@ -61,7 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
               [
                 Padding(
                   padding: const EdgeInsets.all(6.0),
-                  child: Container(height: 40, child: FilterWidget()),
+                  child:
+                      Container(height: 40, child: FilterWidget()),
                 ),
               ],
             ),

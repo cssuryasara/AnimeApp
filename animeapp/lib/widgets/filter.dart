@@ -10,7 +10,7 @@ class FilterWidget extends StatefulWidget {
 class _FilterWidgetState extends State<FilterWidget> {
   // bool ison = false;
   bool isSelected;
-  int select=0;
+  int select = 0;
 
   _showMyDialog() {
     return showDialog(
@@ -26,12 +26,12 @@ class _FilterWidgetState extends State<FilterWidget> {
             child: ListView.builder(
               itemCount: 7,
               itemBuilder: (BuildContext context, int index) {
-                 isSelected = select == index;
+                isSelected = select == index;
                 return InkWell(
                   onTap: () {
                     setState(() {
                       week = weekList[index];
-                      select=index;
+                      select = index;
                     });
                     Navigator.pop(context);
                   },
@@ -40,13 +40,12 @@ class _FilterWidgetState extends State<FilterWidget> {
                       "${weekList[index]}",
                       style: TextStyle(fontSize: 20),
                     ),
-                    trailing: isSelected?Icon(Icons.done):null,
+                    trailing: isSelected ? Icon(Icons.done) : null,
                   ),
                 );
               },
             ),
           ),
-        
         );
       },
     );
@@ -72,8 +71,12 @@ class _FilterWidgetState extends State<FilterWidget> {
       child: Padding(
         padding: const EdgeInsets.all(2.0),
         child: Container(
-          color: Colors.blueAccent,
+          decoration: BoxDecoration(
+            color: Colors.blueAccent,
+            borderRadius: BorderRadius.circular(6),
+          ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 week,
