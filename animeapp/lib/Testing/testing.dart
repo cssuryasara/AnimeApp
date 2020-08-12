@@ -1,94 +1,76 @@
+
 import 'package:flutter/material.dart';
 
-class FilterWidget extends StatefulWidget {
-  FilterWidget({Key key}) : super(key: key);
-
-  @override
-  _FilterWidgetState createState() => _FilterWidgetState();
+void main() {
+  runApp(
+    MaterialApp(
+      home: MyWidget(),
+    ),
+  );
 }
 
-class _FilterWidgetState extends State<FilterWidget> {
-  // bool ison = false;
-
-  _showMyDialog() {
-    return showDialog(
-      context: context,
-      barrierDismissible: true, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('AlertDialog Title'),
-          content: Container(
-            height: 100,
-            width: 100,
-            color: Colors.white,
-            child: ListView.builder(
-              itemCount: 7,
-              itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () {
-                    setState(() {
-                      week = weekList[index];
-                    });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "${weekList[index]}",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Approve'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: FlatButton(
+        child: Text('something'),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SecondRoute()),
+          );
+        },
+      )),
     );
   }
+}
 
-  final List<String> weekList = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'
-  ];
-  String week = 'Sunday';
+class SecondRoute extends StatefulWidget {
+  @override
+  _SecondRouteState createState() => _SecondRouteState();
+}
+
+class _SecondRouteState extends State<SecondRoute> {
+  var opacity=0.0;
+  @override
+  void initState() { 
+    super.initState();
+    setState(() {
+      opacity=1;
+    });
+    Future.delayed(Duration(seconds: 2),(){
+       Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TecondRoute()),
+          );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        _showMyDialog();
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(2.0),
-        child: Container(
-          color: Colors.blueAccent,
-          child: Row(
-            children: [
-              Text(
-                week,
-                style: TextStyle(fontSize: 20, color: Colors.black),
-              ),
-              Icon(
-                Icons.keyboard_arrow_down,
-                size: 24,
-              )
-            ],
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        child: AnimatedOpacity(
+          duration: Duration(seconds: 2),
+          opacity: opacity,
+          child: Image.asset(
+            'assests/thumb-1920-677583.png',
+            fit: BoxFit.fill,
           ),
         ),
-      ),
+      )
     );
   }
 }
+ 
+ class TecondRoute extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {
+     return Container(
+       child:Text('sdcjhmn')
+     );
+   }
+ }

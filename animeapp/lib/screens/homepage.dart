@@ -1,16 +1,18 @@
-import 'package:animeapp/widgets/filter.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 //packages
 import 'package:google_fonts/google_fonts.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flare_flutter/flare_actor.dart';
 
 //widgets
 import '../widgets/sidenavbar.dart';
 import '../widgets/carousel.dart';
+import '../widgets/filter.dart';
+
 //
 import '../utils/constant.dart';
+import '../utils/routetransition.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
@@ -61,8 +63,29 @@ class _MyHomePageState extends State<MyHomePage> {
               [
                 Padding(
                   padding: const EdgeInsets.all(6.0),
-                  child:
-                      Container(height: 40, child: FilterWidget()),
+                  child: Container(
+                    height: 42,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        FilterWidget(),
+                        RaisedButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context)
+                                .push(RouteTransitions().createRoute());
+                          },
+                          child: Text(
+                            'Quiz',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          color: Colors.blueAccent,
+                        )
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),

@@ -75,18 +75,21 @@ class _FilterWidgetState extends State<FilterWidget> {
             color: Colors.blueAccent,
             borderRadius: BorderRadius.circular(6),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                week,
-                style: TextStyle(fontSize: 20, color: Colors.black),
-              ),
-              Icon(
-                Icons.keyboard_arrow_down,
-                size: 24,
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  week,
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  size: 24,
+                )
+              ],
+            ),
           ),
         ),
       ),
