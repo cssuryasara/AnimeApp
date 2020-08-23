@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //screens
-// import 'Testing/testing.dart';/
+// import 'Testing/testing.dart';
 import 'screens/homepage.dart';
 import 'screens/quiz.dart';
 
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/second': (context) => Quiz(),
       },
+      
     );
   }
 }

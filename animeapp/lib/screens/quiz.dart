@@ -9,7 +9,15 @@ class _QuizState extends State<Quiz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('edshhgz'),
+      body: Center(
+          child: Text(
+        'edshhgz',
+        style: TextStyle(
+          // color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.w400,
+        ),
+      )),
     );
   }
 }
